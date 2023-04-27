@@ -7,8 +7,8 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">ABOUT ME</span>
         <img
-          src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
-          alt=""
+          src="https://scontent.fsgn17-1.fna.fbcdn.net/v/t1.18169-9/20526243_335177186938171_262832646511591088_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ad2b24&_nc_ohc=qpEbgPqKDDcAX9bb7hQ&_nc_ht=scontent.fsgn17-1.fna&oh=00_AfA38cGH8Ox5LIOdIYz17qSSsIINm5Ng7T1lRBnKxgeTEQ&oe=6471BEA1"
+          alt="About me Image"
         />
         <p>
           Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit

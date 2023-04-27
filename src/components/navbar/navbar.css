@@ -62,3 +62,19 @@
     color: #666;
     cursor: pointer;
   }
+
+.fb-icon{
+  color: blue;
+}
+
+.ig-icon{
+  color: pink;
+}
+
+.pinterest-icon{
+  color: red;
+}
+
+.twitter-icon{
+  color: aqua;
+}
