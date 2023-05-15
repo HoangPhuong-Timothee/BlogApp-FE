@@ -1,12 +1,12 @@
 export const LoginStart = (userCredential)=>({
-    type: "START_LOGIN"
+    type: "LOGIN_START"
 })
 
 export const LoginFail = ()=>({
-    type: "FAIL_LOGIN"
+    type: "LOGIN_FAIL"
 })
 
 export const LoginSuccess = (user)=>({
-    type: "SUCCESS_LOGIN",
+    type: "LOGIN_SUCCESS",
     payload: user
 }) 

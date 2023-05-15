@@ -1,20 +1,18 @@
 const reducer = (state, action)=>{
     switch(action.type){
-        case "START_LOGIN":
+        case "LOGIN_START":
            return {
                 user: null,
                 isFetching: true,
                 error: false
             }
-        break;
-        case "SUCCESS_LOGIN":
+        case "LOGIN_SUCCESS":
             return{
                 user: action.payload,
                 isFetching: false,
                 error: false
             }
-        break;
-        case "FAIL_LOGIN":
+        case "LOGIN_FAIL":
             return{
                 user: null,
                 isFetching: false,
@@ -24,3 +22,5 @@ const reducer = (state, action)=>{
             return state
     }
 }
+
+export default reducer;

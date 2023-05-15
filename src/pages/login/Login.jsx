@@ -1,46 +1,47 @@
-import { useState } from "react";
+import { useContext, useRef, useState } from "react";
 import "./login.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Context } from '../../context/context';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [err, setErr] = useState(false);
-  const loginHandle = async (e)=>{
+  const userRef = useRef();
+  const pwdRef = useRef();
+  const { user, dispatch, isFetching } = useContext(Context)
+  const handleLogin = async (e)=>{
     e.preventDefault();
-    setErr(false);
+    dispatch({ type: "LOGIN_START" })
     try{
       const res = await axios.post("http://localhost:5500/api/auth/login", {
-      email,
-      password
+      username: userRef.current.value,
+      password: pwdRef.current.value,
       })
-      res.data && window.location.replace('/')
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data })
     }catch(err){
-      setErr(true);
+      dispatch({ type: "LOGIN_FAIL" })
     }
   }
+  console.log(user);
   return (
     <div className="login">
       <span className="loginTitle">Login</span>
-      <form className="loginForm" onSubmit={loginHandle}> 
-        <label>Email</label>
+      <form className="loginForm" onSubmit={handleLogin}> 
+        <label>Username</label>
         <input 
           className="loginInput" 
           type="text" 
-          placeholder="Enter your email..." 
-          onChange={e=>setEmail(e.target.value)}
+          placeholder="Enter your username..." 
+          ref={userRef}
           />
         <label>Password</label>
         <input 
           className="loginInput" 
           type="password" 
           placeholder="Enter your password..." 
-          onChange={e=>setPassword(e.target.value)}
+          ref={pwdRef}
           />
         <button className="loginButton">Login</button>
       </form>
-      {err && <span className="err-noti">Oops, something went wrong!</span>}
         <button className="loginRegisterButton">
           <Link className="link" to='/register'>Register</Link>
         </button>
